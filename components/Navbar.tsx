@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <section
       className={`fixed bottom-0 left-0 flex w-full z-50 justify-between px-4 py-2 shadow-lg ${pathName === "/add-post" ? "hidden" : ""} ${
-        pathName === "/" || pathName === `/${params?.username}/${params?.postId}` ? "bg-black text-white" : ""
+        pathName === "/" || pathName === `/${params?.username}/${params?.postId}` ? "bg-black text-white" : "bg-white"
       } `}
     >
       <Link className="flex flex-col items-center" href={"/"}>

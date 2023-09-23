@@ -84,7 +84,7 @@ const AddPostBody = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="h-full flex flex-col justify-between bg-white w-full max-w-sm">
+    <form onSubmit={handleSubmit} className="h-full flex flex-col justify-between bg-white">
       <div>
         <div className="border px-3 py-4">
           <div className="flex justify-between ">

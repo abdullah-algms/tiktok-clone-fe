@@ -23,7 +23,7 @@ const Page = async ({ params }: Params) => {
     redirect("/login");
   }
   return (
-    <section className="bg-white h-screen">
+    <section className="bg-white h-full pb-32">
       <ProfileHeader user={user} />
       <ProfileBody user={user} />
       <ProfilePost posts={responseUserPost} user={user} />
