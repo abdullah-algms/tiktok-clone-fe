@@ -18,7 +18,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en">
-      <body className={`${inter.className} max-w-sm mx-auto bg-black bg-blend-darken`}>
+      <body className={`${inter.className}  bg-black bg-blend-darken`}>
         <NextAuthProvider>
           {children}
           {session && <Navbar />}

@@ -52,7 +52,7 @@ const PostCard = ({ post, allPost }: Props) => {
     const options = {
       root: null, // Use the viewport as the root
       rootMargin: "0px", // No margin around the viewport
-      threshold: 0.9, // Trigger when at least 50% of the video is visible
+      threshold: 0.5, // Trigger when at least 50% of the video is visible
     };
 
     const observers: IntersectionObserver[] = [];
@@ -80,7 +80,7 @@ const PostCard = ({ post, allPost }: Props) => {
 
   return (
     <>
-      <section className="h-fit flex items-center justify-center relative">
+      <section className="h-screen flex items-center justify-center relative">
         <video
           className="brightness-90 min-w-fit h-screen aspect-[9/16]"
           id={post._id}
