@@ -194,7 +194,7 @@ const AddPostBody = () => {
           </div>
         </div>
       </div>
-      <div className="px-3 mb-10">
+      <div className="px-3 mb-32">
         <div className="flex items-center mb-2 gap-2">
           <input type="checkbox" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
           <p className="text-sm font-medium">I agree to all privacy and policies</p>
