@@ -58,7 +58,7 @@ const SearchBody = ({ users, currentUser }: Props) => {
   return (
     <div className="pt-3">
       <div className="flex justify-between items-center gap-3">
-        <ButtonBack />
+        <ButtonBack size="20" color="black" />
         <div className="relative w-full">
           <input className="w-full bg-[rgba(22,24,35,0.12)] py-1 rounded-md outline-none pl-8" type="text" placeholder="Search" value={keyword} onChange={(e) => setKeyword(e.target.value)} />
           <FiSearch className="absolute top-2 left-2" />

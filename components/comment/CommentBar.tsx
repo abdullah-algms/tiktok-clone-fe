@@ -30,7 +30,7 @@ const CommentBar = ({ postId }: Props) => {
     <div className="flex fixed items-center gap-3 w-full bottom-0 py-2 z-10 border-t px-3 bg-white">
       <Image src={userSession?.image as string} width={35} height={35} alt="profile" className="rounded-full object-fill w-[35px] h-[35px]" />
       <form onSubmit={handleSubmit} className="w-full relative">
-        <input type="text" className="w-full bg-[#f1f1f1] outline-none py-2 rounded-xl pl-3 pr-8" placeholder="Add comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
+        <input autoFocus type="text" className="w-full bg-[#f1f1f1] outline-none py-2 rounded-xl pl-3 pr-8" placeholder="Add comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
         {comment.length ? (
           <button type="submit" className="bottom-3 right-2 absolute z-20">
             <BsArrowUpCircleFill size="18" color="#FE2C55" />

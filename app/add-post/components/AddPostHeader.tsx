@@ -4,7 +4,7 @@ import React from "react";
 const AddPostHeader = () => {
   return (
     <div className="flex justify-between items-center py-2 px-3">
-      <ButtonBack />
+      <ButtonBack color="black" size="20" />
       <h2 className="font-semibold text-base">Posting</h2>
       <span></span>
     </div>

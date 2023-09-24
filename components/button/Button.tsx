@@ -1,5 +1,5 @@
 "use client";
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 import Image from "next/image";
 import React from "react";
 import { BsGithub } from "react-icons/bs";
@@ -26,11 +26,15 @@ export const ButtonLoginGithub = () => {
   );
 };
 
-export const ButtonBack = () => {
+export const ButtonBack = ({ color, size }: { color: string; size: string }) => {
   const router = useRouter();
   return (
     <button onClick={() => router.back()}>
-      <MdArrowBackIosNew />
+      <MdArrowBackIosNew color={color} size={size} />
     </button>
   );
+};
+
+export const ButtonLogout = () => {
+  return <button onClick={() => signOut()}>Log out</button>;
 };

@@ -13,7 +13,7 @@ const ProfileBody = async ({ user }: Props) => {
   const userSession = session?.user;
 
   return (
-    <div className="flex flex-col items-center gap-3 mt-3">
+    <div className="flex flex-col items-center gap-3 mt-14">
       <Image src={user?.profile.image as string} width={96} height={96} alt="profile" className="rounded-full" />
       <p className="font-semibold">@{user?.username}</p>
       <div className="flex justify-center items-center gap-10 w-full">

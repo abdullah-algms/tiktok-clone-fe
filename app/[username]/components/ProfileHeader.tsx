@@ -13,13 +13,13 @@ const ProfileHeader = ({ user }: Props) => {
   const { data: session } = useSession();
   const userSession = session?.user;
   return (
-    <div className="flex justify-between items-center border py-2 px-3">
+    <div className="flex justify-between items-center border py-2 px-3 fixed w-full z-[100] bg-white">
       {userSession?.username === user?.username ? (
         <button onClick={() => signOut()} className="w-[23px]">
           Logout
         </button>
       ) : (
-        <ButtonBack />
+        <ButtonBack size="20" color="black" />
       )}
 
       <h2 className="font-semibold text-[18px]">{user?.profile.name}</h2>
