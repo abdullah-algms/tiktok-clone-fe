@@ -1,9 +1,8 @@
 "use client";
-import { signOut, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import React from "react";
 import { BsThreeDots } from "@react-icons/all-files/bs/BsThreeDots";
-import { ButtonBack } from "@/components/button/Button";
 
 interface Props {
   user: User | undefined;
