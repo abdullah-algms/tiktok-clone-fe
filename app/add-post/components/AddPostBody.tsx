@@ -40,7 +40,7 @@ const AddPostBody = () => {
       setIsChooseVideo(true);
       setVideoPost(file);
     } else {
-      alert("Video size should not exceed 15MB, Select another video!");
+      alert("Video size should not exceed 10MB, Select another video!");
       setIsChooseVideo(false);
       setVideoPost(null);
     }
