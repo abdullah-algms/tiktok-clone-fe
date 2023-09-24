@@ -12,7 +12,7 @@ import { LuBookMinus } from "react-icons/lu";
 
 const SettingBody = () => {
   return (
-    <div className="flex flex-col px-3 mt-14 gap-3">
+    <div className="flex flex-col px-3 mt-14 gap-3 mb-32">
       <div className="border-b pb-6">
         <h2 className="text-[#A4A4A4] uppercase text-sm font-semibold">Account</h2>
         <div className="flex items-center justify-between mt-6">
