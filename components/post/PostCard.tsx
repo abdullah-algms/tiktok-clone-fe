@@ -80,7 +80,7 @@ const PostCard = ({ post, allPost }: Props) => {
 
   return (
     <>
-      <section className="h-screen flex items-center justify-center relative">
+      <section className="h-fit flex items-center justify-center relative">
         <video
           className="brightness-90 min-w-fit h-screen aspect-[9/16]"
           id={post._id}
@@ -100,7 +100,7 @@ const PostCard = ({ post, allPost }: Props) => {
           <HeaderPost />
         </div>
         {showComment ? (
-          <div className="fixed w-full h-full max-w-sm z-[200] bg-black bg-opacity-60">
+          <div className="fixed w-full h-screen z-[200] bg-black bg-opacity-60">
             <Comment />
           </div>
         ) : null}

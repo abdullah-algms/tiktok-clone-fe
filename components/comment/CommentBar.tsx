@@ -27,7 +27,7 @@ const CommentBar = ({ postId }: Props) => {
   };
 
   return (
-    <div className="flex fixed items-center gap-3 w-full max-w-sm bottom-0 py-2 z-10 border-t px-3 bg-white">
+    <div className="flex fixed items-center gap-3 w-full bottom-0 py-2 z-10 border-t px-3 bg-white">
       <Image src={userSession?.image as string} width={35} height={35} alt="profile" className="rounded-full object-fill w-[35px] h-[35px]" />
       <form onSubmit={handleSubmit} className="w-full relative">
         <input type="text" className="w-full bg-[#f1f1f1] outline-none py-2 rounded-xl pl-3 pr-8" placeholder="Add comment..." value={comment} onChange={(e) => setComment(e.target.value)} />
