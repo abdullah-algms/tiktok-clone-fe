@@ -8,9 +8,9 @@ export default async function Home() {
   const session = await getServerSession(nextAuthOptions);
   const posts: Post[] = (await getAllPost()) as Post[];
 
-  if (!session) {
-    redirect("/login");
-  }
+  // if (!session) {
+  //   redirect("/login");
+  // }
 
   return (
     <main className="relative">
