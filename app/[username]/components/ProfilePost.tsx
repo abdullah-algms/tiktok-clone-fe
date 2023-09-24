@@ -14,7 +14,7 @@ const ProfilePost = ({ posts, user }: Props) => {
   const { activeTab } = useStore();
 
   return (
-    <div className="transform transition-all duration-500 ease-linear ">
+    <div className="transform transition-all duration-500 ease-linear pb-32">
       <ActiveTab />
       {activeTab === "post" ? <Post posts={posts} /> : <LikedPost user={user} />}
     </div>

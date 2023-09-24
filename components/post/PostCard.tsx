@@ -90,10 +90,10 @@ const PostCard = ({ post, allPost }: Props) => {
           loop
           src={post.post}
         />
-        <div className="absolute right-[10px] z-10 bottom-[70px]">
+        <div className="absolute right-[10px] z-10 bottom-[90px]">
           <PostAction isVideoPlaying={isVideoPlay} post={post} />
         </div>
-        <div className="absolute bottom-[70px] left-3 z-10">
+        <div className="absolute bottom-[90px] left-3 z-10">
           <PostDetail isVideoPlaying={isVideoPlay} post={post} />
         </div>
         <div className="absolute top-2 z-10 inset-x-0 mx-auto">
