@@ -54,7 +54,9 @@ export const getUserPost = async (username: string) => {
 
 export const getAllPost = async () => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/post/all-post`);
+    const response = await fetch(`${process.env.API_URL}/api/post/all-post`, {
+      cache: "no-store",
+    });
     const data = await response.json();
     const post: Post[] = data.data;
     return post;

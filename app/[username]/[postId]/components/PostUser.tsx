@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from "react";
 import Pusher from "pusher-js";
 import PostCard from "@/components/post/PostCard";
+import Comment from "@/components/comment/CommentBody";
+import { useStore } from "@/src/store";
 
 interface Props {
   post: Post;
@@ -10,6 +12,7 @@ interface Props {
 
 const PostUser = ({ post }: Props) => {
   const [userPost, setUserPost] = useState<Post>(post);
+  const { showComment } = useStore();
 
   useEffect(() => {
     const pusher = new Pusher(process.env.PUSHER_KEY as string, {
@@ -27,6 +30,11 @@ const PostUser = ({ post }: Props) => {
 
   return (
     <div className="h-screen max-h-screen post-container">
+      {showComment ? (
+        <div className="fixed w-full h-screen z-[200] bg-black bg-opacity-60">
+          <Comment />
+        </div>
+      ) : null}
       <PostCard post={userPost} allPost={undefined} />
     </div>
   );

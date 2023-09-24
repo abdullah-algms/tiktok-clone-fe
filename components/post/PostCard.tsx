@@ -96,14 +96,7 @@ const PostCard = ({ post, allPost }: Props) => {
         <div className="absolute bottom-[30px] left-3 z-10">
           <PostDetail isVideoPlaying={isVideoPlay} post={post} />
         </div>
-        <div className="absolute top-2 z-10 inset-x-0 mx-auto">
-          <HeaderPost />
-        </div>
-        {showComment ? (
-          <div className="fixed w-full h-screen z-[200] bg-black bg-opacity-60">
-            <Comment />
-          </div>
-        ) : null}
+
         <div className="gradient-overlay"></div>
         {isVideoPlay ? null : (
           <div className="absolute inset-1/2 transform -translate-x-[20px] -translate-y-[40px] pointer-events-none">

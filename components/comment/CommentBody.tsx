@@ -16,11 +16,14 @@ const Comment = () => {
   const scrollDownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const controller = new AbortController();
     const fetchData = async () => {
       const data = await getAllComments(postIdComment);
       setComments(data as Comments[]);
     };
     fetchData();
+
+    return () => controller.abort();
   }, [postIdComment]);
 
   useEffect(() => {
@@ -46,7 +49,7 @@ const Comment = () => {
   return (
     <div className="w-full h-2/3 absolute bottom-0 bg-white rounded-md z-[200] overflow-y-auto scrollbar-width-none">
       <div>
-        <div className="flex items-center justify-between py-3 rounded-md px-3 w-full bg-white top-1/3">
+        <div className="flex items-center fixed justify-between py-3 rounded-md px-3 w-full bg-white top-1/3">
           <span></span>
           <h2 className="font-semibold">
             {comments.length} {comments.length <= 1 ? "comment" : "comments"}

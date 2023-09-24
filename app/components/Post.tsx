@@ -7,13 +7,15 @@ import PostMessageAlert from "@/components/post/PostMessageAlert";
 import Pusher from "pusher-js";
 import { parseToDate } from "@/utils/parseDate";
 import PostCard from "@/components/post/PostCard";
+import HeaderPost from "@/components/post/HeaderPost";
+import Comment from "@/components/comment/CommentBody";
 
 interface Props {
   posts: Post[];
 }
 
 const Post = ({ posts }: Props) => {
-  const { thumbnail, isLoadingUpload, isUploadDone, uploadMessage, setIsUploadDone } = useStore();
+  const { thumbnail, isLoadingUpload, isUploadDone, uploadMessage, showComment, setIsUploadDone } = useStore();
   const [allPost, setAllPosts] = useState<Post[]>(posts);
 
   useEffect(() => {
@@ -65,13 +67,21 @@ const Post = ({ posts }: Props) => {
   return (
     <div className="h-screen max-h-screen post-container relative">
       {isLoadingUpload ? (
-        <div className="absolute top-11 left-5 z-10">
+        <div className="fixed top-11 left-5 z-10">
           <LoadingIndicator thumbnail={thumbnail} />
         </div>
       ) : null}
       {isUploadDone ? (
         <div className="fixed top-0 z-50 w-full ">
           <PostMessageAlert message={uploadMessage} />
+        </div>
+      ) : null}
+      <div className="fixed top-2 z-10 inset-x-0 mx-auto">
+        <HeaderPost />
+      </div>
+      {showComment ? (
+        <div className="fixed w-full h-screen z-[200] bg-black bg-opacity-60">
+          <Comment />
         </div>
       ) : null}
       {allPost.map((post, index) => (
