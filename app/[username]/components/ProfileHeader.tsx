@@ -14,14 +14,7 @@ const ProfileHeader = ({ user }: Props) => {
   const userSession = session?.user;
   return (
     <div className="flex justify-between items-center border py-2 px-3 fixed w-full z-[100] bg-white">
-      {userSession?.username === user?.username ? (
-        <button onClick={() => signOut()} className="w-[23px]">
-          Logout
-        </button>
-      ) : (
-        <ButtonBack size="20" color="black" />
-      )}
-
+      <div className="px-[12px]"></div>
       <h2 className="font-semibold text-[18px]">{user?.profile.name}</h2>
       <Link href={"/setting"}>
         <BsThreeDots size={23} />

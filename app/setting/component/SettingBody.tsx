@@ -7,13 +7,12 @@ import { LiaLanguageSolid } from "react-icons/lia";
 import { BiHelpCircle, BiLogIn } from "react-icons/bi";
 import { BsShieldCheck } from "react-icons/bs";
 import { MdOutlineHomeRepairService } from "react-icons/md";
-import { VscNotebook } from "react-icons/vsc";
 import { ButtonLogout } from "@/components/button/Button";
 import { LuBookMinus } from "react-icons/lu";
 
 const SettingBody = () => {
   return (
-    <div className="flex flex-col px-3 mt-4 gap-3">
+    <div className="flex flex-col px-3 mt-14 gap-3">
       <div className="border-b pb-6">
         <h2 className="text-[#A4A4A4] uppercase text-sm font-semibold">Account</h2>
         <div className="flex items-center justify-between mt-6">
