@@ -19,11 +19,11 @@ const Page = async ({ params }: Params) => {
   const responseUserPost = await getUserPost(params.username);
 
   const session = await getServerSession(nextAuthOptions);
-  if (!session) {
-    redirect("/login");
-  }
+  // if (!session) {
+  //   redirect("/login");
+  // }
   return (
-    <section className="bg-white h-fit">
+    <section className="bg-white min-h-screen">
       <ProfileHeader user={user} />
       <ProfileBody user={user} />
       <ProfilePost posts={responseUserPost} user={user} />
