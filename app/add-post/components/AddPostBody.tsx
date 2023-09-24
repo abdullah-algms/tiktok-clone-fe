@@ -36,7 +36,7 @@ const AddPostBody = () => {
   const handleVideoSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
 
-    if (file && file.size <= 15000000) {
+    if (file && file.size <= 10000000) {
       setIsChooseVideo(true);
       setVideoPost(file);
     } else {
