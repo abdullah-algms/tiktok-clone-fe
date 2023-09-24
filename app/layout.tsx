@@ -20,10 +20,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <body className={`${inter.className} bg-black bg-blend-darken`}>
         <NextAuthProvider>
-          <div className="h-fit fixed top-0 w-full">
+          <div className="h-fit fixed overflow-hidden top-0 w-full">
             {children}
-            {/* {session && <Navbar />} */}
-            <Navbar />
+            {session && <Navbar />}
           </div>
         </NextAuthProvider>
       </body>
