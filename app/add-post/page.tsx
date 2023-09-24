@@ -4,7 +4,7 @@ import AddPostBody from "./components/AddPostBody";
 
 const Page = () => {
   return (
-    <section className="bg-white h-screen overscroll-y-auto">
+    <section className="bg-white h-screen max-h-screen">
       <AddPostHeader />
       <AddPostBody />
     </section>

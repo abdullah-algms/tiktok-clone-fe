@@ -70,7 +70,7 @@ const Post = ({ posts }: Props) => {
         </div>
       ) : null}
       {isUploadDone ? (
-        <div className="fixed left-[572px] top-0 z-50 w-full ">
+        <div className="fixed top-0 z-50 w-full ">
           <PostMessageAlert message={uploadMessage} />
         </div>
       ) : null}

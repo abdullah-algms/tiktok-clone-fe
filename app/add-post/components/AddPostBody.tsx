@@ -60,6 +60,10 @@ const AddPostBody = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!videoPost || !thumbnail) {
+      alert("Video post and Cover are required!");
+      return;
+    }
     setIsLoadingUpload(true);
     setThumbnailCover(cover as string);
     router.push("/");
@@ -84,10 +88,10 @@ const AddPostBody = () => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="h-full flex flex-col justify-between bg-white">
+    <form onSubmit={handleSubmit} className="flex flex-col justify-between bg-white gap-44">
       <div>
         <div className="border px-3 py-4">
-          <div className="flex justify-between ">
+          <div className="flex justify-between">
             <textarea
               name="caption"
               id="caption"
@@ -108,11 +112,11 @@ const AddPostBody = () => {
                     <BsPlusCircleFill className="absolute bg-white rounded-full w-5 h-5 inset-y-0 my-auto inset-x-0 mx-auto" color="#FE2C55" />
                   </span>
                 )}
-                <input type="file" required accept="video/*" name="video-post" id="video-post" className="hidden" onChange={handleVideoSelect} />
+                <input type="file" accept=".mp4" name="video-post" id="video-post" className="hidden" onChange={handleVideoSelect} />
               </label>
               <label htmlFor="thumbnail-cover" className="absolute bottom-0 left-1">
                 <span className="text-white text-[9px]">Choose cover</span>
-                <input type="file" required accept="image/*" name="thumbnail-cover" id="thumbnail-cover" className="hidden" onChange={handleChangeImage} />
+                <input type="file" accept="image/*" name="thumbnail-cover" id="thumbnail-cover" className="hidden" onChange={handleChangeImage} />
               </label>
             </div>
           </div>
@@ -194,7 +198,7 @@ const AddPostBody = () => {
           </div>
         </div>
       </div>
-      <div className="px-3 mb-32">
+      <div className="px-3">
         <div className="flex items-center mb-2 gap-2">
           <input type="checkbox" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
           <p className="text-sm font-medium">I agree to all privacy and policies</p>

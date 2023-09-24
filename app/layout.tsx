@@ -22,7 +22,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <NextAuthProvider>
           <div className="h-fit fixed overflow-hidden top-0 w-full">
             {children}
-            {session && <Navbar />}
+            {/* {session && <Navbar />} */}
+            <Navbar />
           </div>
         </NextAuthProvider>
       </body>
