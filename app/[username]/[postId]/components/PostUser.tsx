@@ -26,7 +26,7 @@ const PostUser = ({ post }: Props) => {
   }, []);
 
   return (
-    <div className="h-screen post-container relative grid grid-cols-1">
+    <div className="h-screen max-h-screen post-container">
       <PostCard post={userPost} allPost={undefined} />
     </div>
   );

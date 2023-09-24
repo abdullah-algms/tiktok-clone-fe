@@ -80,9 +80,9 @@ const PostCard = ({ post, allPost }: Props) => {
 
   return (
     <>
-      <section className="min-h-fit flex items-center justify-center relative overflow-x-hidden">
+      <section className="h-[88vh] flex items-center justify-center relative overflow-x-hidden">
         <video
-          className="brightness-90 min-w-fit h-screen min-h-fit aspect-[9/16]"
+          className="brightness-90  w-full h-[88vh]"
           id={post._id}
           //@ts-ignore
           ref={(ref) => (playerRefs[post._id] = ref)}
@@ -90,10 +90,10 @@ const PostCard = ({ post, allPost }: Props) => {
           loop
           src={post.post}
         />
-        <div className="absolute right-[10px] z-10 bottom-[130px]">
+        <div className="absolute right-[10px] z-10 bottom-[30px]">
           <PostAction isVideoPlaying={isVideoPlay} post={post} />
         </div>
-        <div className="absolute bottom-[130px] left-3 z-10">
+        <div className="absolute bottom-[30px] left-3 z-10">
           <PostDetail isVideoPlaying={isVideoPlay} post={post} />
         </div>
         <div className="absolute top-2 z-10 inset-x-0 mx-auto">

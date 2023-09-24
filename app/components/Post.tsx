@@ -63,7 +63,7 @@ const Post = ({ posts }: Props) => {
   allPost.sort((a, b) => parseToDate(b.createdAt).getTime() - parseToDate(a.createdAt).getTime());
 
   return (
-    <div className="h-screen post-container relative grid grid-cols-1">
+    <div className="h-screen max-h-screen post-container relative">
       {isLoadingUpload ? (
         <div className="absolute top-11 left-5 z-10">
           <LoadingIndicator thumbnail={thumbnail} />
@@ -74,8 +74,8 @@ const Post = ({ posts }: Props) => {
           <PostMessageAlert message={uploadMessage} />
         </div>
       ) : null}
-      {allPost.map((post) => (
-        <div key={post._id}>
+      {allPost.map((post, index) => (
+        <div key={post._id} style={{ marginBottom: index === allPost.length - 1 ? "128px" : "0" }}>
           <PostCard post={post} allPost={allPost} />
         </div>
       ))}

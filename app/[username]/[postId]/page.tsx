@@ -12,7 +12,7 @@ const Page = async ({ params }: Params) => {
   const postUser = (await getSinglePost(params.postId)) as Post;
 
   return (
-    <div>
+    <div className="h-screen">
       <PostUser post={postUser} />
     </div>
   );

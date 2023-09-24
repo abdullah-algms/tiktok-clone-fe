@@ -32,7 +32,6 @@ const PostAction = ({ post, isVideoPlaying }: Props) => {
   };
 
   const handleComment = async (id: string) => {
-    console.log(id);
     setShowComment(true);
     setPostIdComment(id);
   };
