@@ -100,24 +100,30 @@ const AddPostBody = () => {
               value={caption}
               onChange={(e) => setCaption(e.target.value)}
             ></textarea>
-            <div className="w-[20%] bg-black h-24 rounded-md relative overflow-hidden">
-              {cover ? <Image src={`${cover}`} width={100} height={120} alt="cover" className="object-cover w-full aspect-[9/16]" /> : null}
-              <label htmlFor="video-post">
-                {isChooseVideo ? (
+            <div className="flex flex-col gap-1 w-1/5">
+              <div className="w-full bg-black h-12 rounded-md relative overflow-hidden">
+                <label htmlFor="video-post">
+                  {isChooseVideo ? (
+                    <span>
+                      <AiFillCheckCircle className="absolute bg-white rounded-full w-5 h-5 inset-y-0 my-auto inset-x-0 mx-auto" color="green" />
+                    </span>
+                  ) : (
+                    <span>
+                      <BsPlusCircleFill className="absolute bg-white rounded-full w-5 h-5 inset-y-0 my-auto inset-x-0 mx-auto" color="#FE2C55" />
+                    </span>
+                  )}
+                  <input type="file" accept=".mp4" name="video-post" id="video-post" className="hidden" onChange={handleVideoSelect} />
+                </label>
+              </div>
+              <div className="w-full bg-black h-12 rounded-md relative overflow-hidden flex items-center justify-center">
+                {cover ? <Image src={`${cover}`} width={100} height={120} alt="cover" className="object-cover absolute w-full aspect-[9/16]" /> : null}
+                <label htmlFor="thumbnail-cover" className="z-50">
                   <span>
-                    <AiFillCheckCircle className="absolute bg-white rounded-full w-5 h-5 inset-y-0 my-auto inset-x-0 mx-auto" color="green" />
+                    <p className="text-white text-center text-xs">Choose cover</p>
                   </span>
-                ) : (
-                  <span>
-                    <BsPlusCircleFill className="absolute bg-white rounded-full w-5 h-5 inset-y-0 my-auto inset-x-0 mx-auto" color="#FE2C55" />
-                  </span>
-                )}
-                <input type="file" accept=".mp4" name="video-post" id="video-post" className="hidden" onChange={handleVideoSelect} />
-              </label>
-              <label htmlFor="thumbnail-cover" className="absolute bottom-0 left-1">
-                <span className="text-white text-[9px]">Choose cover</span>
-                <input type="file" accept="image/*" name="thumbnail-cover" id="thumbnail-cover" className="hidden" onChange={handleChangeImage} />
-              </label>
+                  <input type="file" accept="image/*" name="thumbnail-cover" id="thumbnail-cover" className="hidden" onChange={handleChangeImage} />
+                </label>
+              </div>
             </div>
           </div>
           <div className="flex items-center gap-2">
