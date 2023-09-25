@@ -88,6 +88,8 @@ const PostCard = ({ post, allPost }: Props) => {
           ref={(ref) => (playerRefs[post._id] = ref)}
           onClick={() => handleVideoClick(post._id)}
           loop
+          preload="auto"
+          playsInline
           src={post.post}
         />
         <div className="absolute right-[10px] z-10 bottom-[30px]">
