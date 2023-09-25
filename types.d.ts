@@ -24,6 +24,7 @@ interface User {
       };
       thumbnail: string;
       total_view: number;
+      createdAt: string;
     }
   ];
 }
