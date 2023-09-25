@@ -57,7 +57,7 @@ const SearchBody = ({ users, currentUser }: Props) => {
   }
   return (
     <div className="mb-32">
-      <div className="flex justify-between items-center gap-3 fixed w-full bg-white top-0 py-3">
+      <div className="flex justify-between items-center gap-3 fixed w-full bg-white top-0 py-3 px-3">
         <ButtonBack size="20" color="black" />
         <div className="relative w-full">
           <input className="w-full bg-[rgba(22,24,35,0.12)] py-1 rounded-md outline-none pl-8" type="text" placeholder="Search" value={keyword} onChange={(e) => setKeyword(e.target.value)} />
@@ -65,7 +65,7 @@ const SearchBody = ({ users, currentUser }: Props) => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3 mt-16">
+      <div className="flex flex-col gap-3 mt-16 px-3">
         {searchUser?.length ? (
           searchUser?.map((user) => (
             <button onClick={() => saveHistory(user, user.username)} key={user._id} className="flex items-center justify-between">
