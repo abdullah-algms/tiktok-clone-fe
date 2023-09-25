@@ -80,9 +80,9 @@ const PostCard = ({ post, allPost }: Props) => {
 
   return (
     <>
-      <section className="h-[88vh] flex items-center justify-center relative overflow-x-hidden">
+      <section className="h-[93vh] flex items-center justify-center relative overflow-x-hidden">
         <video
-          className="brightness-90  w-full h-[88vh]"
+          className="brightness-90 max-h-[93vh]  w-full h-auto object-fill"
           id={post._id}
           //@ts-ignore
           ref={(ref) => (playerRefs[post._id] = ref)}
