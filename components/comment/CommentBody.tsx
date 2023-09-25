@@ -58,7 +58,7 @@ const Comment = () => {
             <AiOutlineClose />
           </button>
         </div>
-        <div className="flex flex-col px-3 gap-5 mt-14 mb-20">
+        <div className="flex flex-col px-3 gap-5 mt-14 mb-32">
           {comments.map((comment) => (
             <div key={comment._id}>
               <div className="flex gap-2 items-start">

@@ -4,7 +4,7 @@ import { AiOutlineClose, AiOutlineQuestionCircle } from "react-icons/ai";
 
 const Page = () => {
   return (
-    <section className="flex flex-col justify-between h-screen px-4 py-4 bg-white">
+    <section className="flex flex-col justify-between h-screen px-4 py-4 bg-white overflow-y-scroll min-h-screen">
       <div>
         <div className="flex justify-between">
           <AiOutlineClose size={23} />

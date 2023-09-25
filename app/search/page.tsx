@@ -10,7 +10,7 @@ const Page = async () => {
   const userSession = session?.user;
 
   return (
-    <section className="bg-white h-screen px-3">
+    <section className="bg-white h-screen px-3 overflow-y-auto">
       <SearchBody users={allUsers} currentUser={userSession} />
     </section>
   );
