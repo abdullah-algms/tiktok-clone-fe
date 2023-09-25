@@ -31,12 +31,12 @@ const Navbar = () => {
         {pathName === "/discover" ? (
           <>
             <RiCompass3Fill size={24} />
-            <span className="text-[10px] font-semibold">DISCOVER</span>
+            <span className="text-[10px] font-semibold">Discover</span>
           </>
         ) : (
           <>
             <FiCompass size={24} />
-            <span className="text-[10px]">DISCOVER</span>
+            <span className="text-[10px]">Discover</span>
           </>
         )}
       </Link>

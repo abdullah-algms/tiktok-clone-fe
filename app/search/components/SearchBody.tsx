@@ -49,7 +49,7 @@ const SearchBody = ({ users, currentUser }: Props) => {
   }, []);
 
   const historyUserSearch = historySearch.slice(0, 5);
-  // historySearch.filter((user, index, self) => index === self.findIndex((u) => u._id === user._id)).slice(0, 5);
+  historySearch.filter((user, index, self) => index === self.findIndex((u) => u._id === user._id)).slice(0, 5);
 
   let searchUser: User[] | undefined;
   if (keyword) {
