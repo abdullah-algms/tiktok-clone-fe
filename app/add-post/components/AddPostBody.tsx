@@ -48,13 +48,17 @@ const AddPostBody = () => {
 
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file) {
+    if (file && file.size <= 2000000) {
       setThummbnail(file);
       const reader = new FileReader();
       reader.onloadend = () => {
         setCover(reader.result);
       };
       reader.readAsDataURL(file);
+    } else {
+      alert("Cover image size should not exceed 2MB, Select another image!");
+      setThummbnail(null);
+      setCover(null);
     }
   };
 
