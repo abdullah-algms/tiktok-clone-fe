@@ -1,7 +1,7 @@
 //user
 export const getSingleUser = async (username: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/user/single-user/${username}`, {
+    const response = await fetch(`${process.env.API_URL}/api/v1/users/${username}`, {
       cache: "no-store",
     });
     const data = await response.json();
@@ -14,7 +14,7 @@ export const getSingleUser = async (username: string) => {
 
 export const getAllUsers = async () => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/user/all-user/`, {
+    const response = await fetch(`${process.env.API_URL}/api/v1/users/`, {
       cache: "no-store",
     });
     const data = await response.json();
@@ -27,7 +27,7 @@ export const getAllUsers = async () => {
 
 export const followUser = async (currentUser: string, targetUser: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/user/follows/${currentUser}/${targetUser}`, {
+    const response = await fetch(`${process.env.API_URL}/api/v1/users/follows/${currentUser}/${targetUser}`, {
       method: "PUT",
     });
     const data = await response.json();
@@ -41,7 +41,7 @@ export const followUser = async (currentUser: string, targetUser: string) => {
 //post
 export const getUserPost = async (username: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/post/user-post/${username}`, {
+    const response = await fetch(`${process.env.API_URL}/api/v1/posts/user-post/${username}`, {
       cache: "no-store",
     });
     const data = await response.json();
@@ -54,7 +54,7 @@ export const getUserPost = async (username: string) => {
 
 export const getAllPost = async () => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/post/all-post`, {
+    const response = await fetch(`${process.env.API_URL}/api/v1/posts/`, {
       cache: "no-store",
     });
     const data = await response.json();
@@ -67,7 +67,7 @@ export const getAllPost = async () => {
 
 export const getSinglePost = async (postId: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/post/single-post/${postId}`);
+    const response = await fetch(`${process.env.API_URL}/api/v1/posts/${postId}`);
     const data = await response.json();
     const post: Post = data.data;
     return post;
@@ -78,7 +78,7 @@ export const getSinglePost = async (postId: string) => {
 
 export const addPost = async (body: BodyInit | null | undefined) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/post/add-post`, {
+    const response = await fetch(`${process.env.API_URL}/api/v1/posts/`, {
       method: "POST",
       body: body,
     });
@@ -92,7 +92,7 @@ export const addPost = async (body: BodyInit | null | undefined) => {
 
 export const likePost = async (postId: string, currentUser: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/post/likes/${postId}/${currentUser}`, {
+    const response = await fetch(`${process.env.API_URL}/api/v1/posts/likes/${postId}/${currentUser}`, {
       method: "PUT",
     });
     const data = await response.json();
@@ -107,7 +107,7 @@ export const likePost = async (postId: string, currentUser: string) => {
 
 export const getAllComments = async (postId: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/comments/all-comments/${postId}`);
+    const response = await fetch(`${process.env.API_URL}/api/v1/comments/${postId}`);
     const data = await response.json();
     const comments: Comments[] = data.data;
     return comments;
@@ -118,7 +118,7 @@ export const getAllComments = async (postId: string) => {
 
 export const addComment = async (currentUser: string, postId: string, commentText: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/comments/add-comment/${currentUser}/${postId}`, {
+    const response = await fetch(`${process.env.API_URL}/api/v1/comments/${currentUser}/${postId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

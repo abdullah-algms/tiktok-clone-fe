@@ -21,7 +21,7 @@ export const nextAuthOptions: NextAuthOptions = {
     //   return { ...token, ...user };
     // },
     async session({ session }) {
-      const response = await fetch(`${process.env.API_URL}/api/user/check-user/${session.user.email}`, {
+      const response = await fetch(`${process.env.API_URL}/api/v1/users/check-user/${session.user.email}`, {
         cache: "no-store",
       });
       const data = await response.json();
@@ -37,10 +37,10 @@ export const nextAuthOptions: NextAuthOptions = {
       const image = user.image as string;
       const username = email.split("@")[0];
 
-      const responseData = await fetch(`${process.env.API_URL}/api/user/check-user/${email}`);
+      const responseData = await fetch(`${process.env.API_URL}/api/v1/users/check-user/${email}`);
       try {
         if (responseData.status === 404) {
-          const response = await fetch(`${process.env.API_URL}/api/user/add-user`, {
+          const response = await fetch(`${process.env.API_URL}/api/v1/users/`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
