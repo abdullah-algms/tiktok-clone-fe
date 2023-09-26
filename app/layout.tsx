@@ -22,9 +22,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <body className={`${inter.className} bg-black`}>
         <NextAuthProvider>
-          <Suspense fallback={<Loading />}></Suspense>
           <div className="h-fit fixed overflow-hidden top-0 w-full">
-            {children}
+            <Suspense fallback={<Loading />}>{children}</Suspense>
             {session && <Navbar />}
           </div>
         </NextAuthProvider>
