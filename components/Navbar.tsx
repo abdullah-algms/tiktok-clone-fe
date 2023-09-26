@@ -18,7 +18,7 @@ const Navbar = () => {
   const params = useParams();
 
   return pathName === "/add-post" || pathName === "/setting" || pathName === "/opening" || pathName === "/login" ? null : (
-    <section className={`fixed bottom-0 left-0 flex w-full z-50 justify-between px-4 py-2 shadow-lg ${pathName === "/" || pathName === `/${params?.username}/${params?.postId}` ? "bg-black text-white" : "bg-white"} `}>
+    <section className={`fixed bottom-0 left-0 flex w-full z-[100] justify-between px-4 py-2 shadow-lg ${pathName === "/" || pathName === `/${params?.username}/${params?.postId}` ? "bg-black text-white" : "bg-white"} `}>
       <Link className="flex flex-col items-center" href={"/"}>
         {pathName === "/" ? <RiHome4Fill size={24} color="white" /> : <RiHome4Line size={24} />}
         <span className="text-[10px]">Home</span>
