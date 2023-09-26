@@ -3,7 +3,7 @@ import React from "react";
 
 const Loading = () => {
   return (
-    <div className="flex relative items-center justify-center top-0  bg-black min-h-screen">
+    <div className="relative h-5 top-0  bg-black">
       <LoadingBar />
     </div>
   );
