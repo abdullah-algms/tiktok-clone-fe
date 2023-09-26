@@ -1,6 +1,6 @@
 # Tiktok Clone Frontend
 
-I created this project for the purpose of learning about frontend development
+I created this project for the purpose of learning about frontend development,
 Disclaimer : This project only supports mobile displays
 
 ## Demo
