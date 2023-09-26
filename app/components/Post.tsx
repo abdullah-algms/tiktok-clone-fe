@@ -45,8 +45,11 @@ const Post = ({ posts }: Props) => {
     });
     const chanel = pusher.subscribe("post");
     chanel.bind("likePost", function (data: any) {
-      const postData: Post[] = data.allPost;
-      setAllPosts(postData);
+      const postData: Post = data.singlePost;
+      const postIndex = allPost.findIndex((el) => el._id === postData._id);
+      const updatedData = [...allPost];
+      updatedData[postIndex] = postData;
+      setAllPosts(updatedData);
     });
     return () => {
       pusher.unsubscribe("post");
