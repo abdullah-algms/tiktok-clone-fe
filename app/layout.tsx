@@ -5,6 +5,8 @@ import NextAuthProvider from "./Provider";
 import Navbar from "@/components/Navbar";
 import { getServerSession } from "next-auth/next";
 import { nextAuthOptions } from "@/pages/api/auth/[...nextauth]";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +22,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <body className={`${inter.className} bg-black`}>
         <NextAuthProvider>
+          <Suspense fallback={<Loading />}></Suspense>
           <div className="h-fit fixed overflow-hidden top-0 w-full">
             {children}
             {session && <Navbar />}
