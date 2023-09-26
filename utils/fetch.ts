@@ -1,9 +1,7 @@
 //user
 export const getSingleUser = async (username: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/v1/users/${username}`, {
-      cache: "no-store",
-    });
+    const response = await fetch(`${process.env.API_URL}/api/v1/users/${username}`);
     const data = await response.json();
     const user: User = data.data;
     return user;
@@ -14,9 +12,7 @@ export const getSingleUser = async (username: string) => {
 
 export const getAllUsers = async () => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/v1/users/`, {
-      cache: "no-store",
-    });
+    const response = await fetch(`${process.env.API_URL}/api/v1/users/`);
     const data = await response.json();
     const user: User[] = data.data;
     return user;
@@ -41,9 +37,7 @@ export const followUser = async (currentUser: string, targetUser: string) => {
 //post
 export const getUserPost = async (username: string) => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/v1/posts/user-post/${username}`, {
-      cache: "no-store",
-    });
+    const response = await fetch(`${process.env.API_URL}/api/v1/posts/user-post/${username}`);
     const data = await response.json();
     const post: Post[] = data.data;
     return post;
@@ -54,9 +48,7 @@ export const getUserPost = async (username: string) => {
 
 export const getAllPost = async () => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/v1/posts/`, {
-      cache: "no-store",
-    });
+    const response = await fetch(`${process.env.API_URL}/api/v1/posts/`);
     const data = await response.json();
     const post: Post[] = data.data;
     return post;
