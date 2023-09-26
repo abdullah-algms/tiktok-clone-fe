@@ -2,10 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import PostAction from "./PostAction";
 import PostDetail from "./PostDetail";
-import HeaderPost from "./HeaderPost";
 import { FaPlay } from "react-icons/fa";
-import Comment from "../comment/CommentBody";
-import { useStore } from "@/src/store";
 
 interface Props {
   post: Post;
@@ -16,7 +13,6 @@ const PostCard = ({ post, allPost }: Props) => {
   const playerRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
   const [isVideoPlaying, setisVideoPlaying] = useState<{ [key: string]: boolean }>({});
   const [isVideoPlay, setIsVideoPlay] = useState<boolean>(false);
-  const { showComment } = useStore();
 
   const handleVideoClick = (postId: string) => {
     if (isVideoPlaying[postId]) {

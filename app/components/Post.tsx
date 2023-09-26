@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import LoadingIndicator from "@/components/LoadingIndicator";
 import { useStore } from "@/src/store";
 import PostMessageAlert from "@/components/post/PostMessageAlert";
@@ -9,6 +9,10 @@ import { parseToDate } from "@/utils/parseDate";
 import PostCard from "@/components/post/PostCard";
 import HeaderPost from "@/components/post/HeaderPost";
 import Comment from "@/components/comment/CommentBody";
+import { LoadingBar } from "@/components/Loading";
+import { NewPostAlert } from "@/components/post/NewPostAlert";
+import { BsFillArrowUpCircleFill } from "react-icons/bs";
+import { AiOutlineClose } from "react-icons/ai";
 
 interface Props {
   posts: Post[];
@@ -16,7 +20,9 @@ interface Props {
 
 const Post = ({ posts }: Props) => {
   const { thumbnail, isLoadingUpload, isUploadDone, uploadMessage, showComment, setIsUploadDone } = useStore();
+  const [showPopupNewPost, setShowPopupNewPost] = useState<boolean>(false);
   const [allPost, setAllPosts] = useState<Post[]>(posts);
+  const topRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const pusher = new Pusher(process.env.PUSHER_KEY as string, {
@@ -26,6 +32,7 @@ const Post = ({ posts }: Props) => {
     chanel.bind("newPost", function (data: any) {
       const postData: Post = data.post;
       setAllPosts((prev) => [...prev, postData]);
+      setShowPopupNewPost(true);
     });
     return () => {
       pusher.unsubscribe("post");
@@ -62,10 +69,34 @@ const Post = ({ posts }: Props) => {
     };
   }, [isUploadDone]);
 
+  const handleScrollTop = () => {
+    const top = topRef.current?.scrollIntoView({ behavior: "smooth" });
+    const interval = setInterval(() => {
+      setShowPopupNewPost(false);
+    }, 1000);
+  };
+
   allPost.sort((a, b) => parseToDate(b.createdAt).getTime() - parseToDate(a.createdAt).getTime());
 
   return (
     <div className="h-screen max-h-screen post-container relative">
+      {showPopupNewPost ? (
+        <div className="fixed w-full z-[100]">
+          <div className="relative">
+            <button onClick={handleScrollTop} className="absolute w-full z-[100]">
+              <NewPostAlert />
+            </button>
+            <button onClick={() => setShowPopupNewPost(false)} className="z-[101] absolute right-1 top-1 text-white">
+              <AiOutlineClose />
+            </button>
+          </div>
+        </div>
+      ) : null}
+      {isLoadingUpload ? (
+        <div className="fixed -top-1 z-50 w-full">
+          <LoadingBar />
+        </div>
+      ) : null}
       {isLoadingUpload ? (
         <div className="fixed top-11 left-5 z-10">
           <LoadingIndicator thumbnail={thumbnail} />
@@ -84,6 +115,7 @@ const Post = ({ posts }: Props) => {
           <Comment />
         </div>
       ) : null}
+      <div ref={topRef}></div>
       {allPost.map((post, index) => (
         <div key={post._id} style={{ marginBottom: index === allPost.length - 1 ? "128px" : "0" }}>
           <PostCard post={post} allPost={allPost} />

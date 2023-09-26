@@ -36,11 +36,11 @@ const AddPostBody = () => {
   const handleVideoSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
 
-    if (file && file.size <= 10000000) {
+    if (file && file.size <= 4000000) {
       setIsChooseVideo(true);
       setVideoPost(file);
     } else {
-      alert("Video size should not exceed 10MB, Select another video!");
+      alert("Video size should not exceed 4MB, Select another video!");
       setIsChooseVideo(false);
       setVideoPost(null);
     }
@@ -48,7 +48,7 @@ const AddPostBody = () => {
 
   const handleChangeImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
-    if (file && file.size <= 2000000) {
+    if (file && file.size <= 1000000) {
       setThummbnail(file);
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -56,7 +56,7 @@ const AddPostBody = () => {
       };
       reader.readAsDataURL(file);
     } else {
-      alert("Cover image size should not exceed 2MB, Select another image!");
+      alert("Cover image size should not exceed 1MB, Select another image!");
       setThummbnail(null);
       setCover(null);
     }
@@ -70,6 +70,7 @@ const AddPostBody = () => {
     }
     setIsLoadingUpload(true);
     setThumbnailCover(cover as string);
+    alert("Your video is uploading, please don't refresh the page!");
     router.push("/");
 
     try {
