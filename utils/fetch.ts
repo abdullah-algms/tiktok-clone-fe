@@ -12,7 +12,11 @@ export const getSingleUser = async (username: string) => {
 
 export const getAllUsers = async () => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/v1/users/`);
+    const response = await fetch(`${process.env.API_URL}/api/v1/users/`, {
+      next: {
+        revalidate: 300,
+      },
+    });
     const data = await response.json();
     const user: User[] = data.data;
     return user;
@@ -48,7 +52,11 @@ export const getUserPost = async (username: string) => {
 
 export const getAllPost = async () => {
   try {
-    const response = await fetch(`${process.env.API_URL}/api/v1/posts/`);
+    const response = await fetch(`${process.env.API_URL}/api/v1/posts/`, {
+      next: {
+        revalidate: 300,
+      },
+    });
     const data = await response.json();
     const post: Post[] = data.data;
     return post;
