@@ -17,8 +17,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const session = await getServerSession(nextAuthOptions);
 
   return (
-    <html lang="ch">
-      <body className={`${inter.className} bg-black bg-blend-darken`}>
+    <html lang="en">
+      <body className={`${inter.className} bg-black`}>
         <NextAuthProvider>
           <div className="h-fit fixed overflow-hidden top-0 w-full">
             {children}
