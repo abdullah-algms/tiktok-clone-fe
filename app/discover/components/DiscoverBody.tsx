@@ -22,6 +22,7 @@ interface Props {
 
 const DiscoverBody = ({ users, currentUser }: Props) => {
   const router = useRouter();
+  users?.sort((a, b) => b.total_followers - a.total_followers);
 
   return (
     <div className="mb-32">
@@ -42,7 +43,7 @@ const DiscoverBody = ({ users, currentUser }: Props) => {
                   </div>
                 </div>
               </div>
-              {user._id === currentUser?._id ? null : <ButtonFollow width={100} height={30} currentUser={currentUser} targetUser={user} />}
+              {/* {user._id === currentUser?._id ? null : <ButtonFollow width={100} height={30} currentUser={currentUser} targetUser={user} />} */}
             </button>
           )
         )}
